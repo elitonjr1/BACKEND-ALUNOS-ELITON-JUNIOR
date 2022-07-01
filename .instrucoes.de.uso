@@ -1,0 +1,62 @@
+E ai professor, beleza?
+Então segue as intruções para usar
+
+O meu banco é postgres e ta upado no heroku. Ja inseri umas coisas na tabelas pra funcionar de boa o teste.
+
+o domain do heroku é: https://backend-alunos-eliton-jr.herokuapp.com/
+
+AlunoController {/api/v1/aluno}
+    {/api/v1/aluno, POST} -- Inserir aluno
+    {/api/v1/aluno, GET} -- Pegar todos os alunos
+    {/api/v1/aluno/:id, GET} -- pegar aluno por id
+    {/api/v1/aluno/email/:email, GET} --pegar aluno por email
+    {/api/v1/aluno/:id, PATCH} -- atualizar aluno
+    {/api/v1/aluno/:id, DELETE} -- deletar aluno
+
+    exemplo de cadastrar aluno:
+
+    {/api/v1/aluno, POST}
+
+    {
+	"nome":"Jader Mambreu",
+	"data_nascimento":"1990-06-22 00:00:00+00",
+	"email":"bilokegames@gmail.com",
+	"senha":"Biloke@123"
+    }
+
+ AuthController {/api/auth} 
+    {/api/auth/login, POST} -- logar para recuperar token jwt 
+
+    exemplo de login:
+
+    {/api/auth/login, POST}
+    {
+        "email":"elitonjr1@gmail.com",
+        "senha":"12345"
+    }
+
+ CursoController {/api/v1/curso}: +1ms
+    {/api/v1/curso, POST} -- criar curso
+    {/api/v1/curso, GET} -- pegar todos os cursos
+    {/api/v1/curso/buscar, GET} -- pegar todos os cursos ativos e que ainda nao iniciaram
+    {/api/v1/curso/:id, PATCH} -- atualizar curso
+    {/api/v1/curso/:id, DELETE} -- deletar curso
+
+ InscricaoController {/api/v1/inscricao}: +1ms
+    {/api/v1/inscricao, POST} -- criar inscricao
+    {/api/v1/inscricao/cadastrar, POST} -- criar inscricao porem com verificacao se o aluno ja tem inscricao no curso
+    {/api/v1/inscricao, GET} -- pegar todas as incricoes
+    {/api/v1/inscricao/:id, PATCH} -- atualizar inscricoes
+    {/api/v1/inscricao/removerInscricao/:id, PATCH} -- atulizar inscricoes como funcao de remover que é adicionar a data de cancelamento.
+
+    exemplo de criar inscricao:
+
+    {/api/v1/inscricao/cadastrar, POST}
+
+    {
+	"id_aluno":"2",
+	"id_curso":"5"
+    }
+
+
+    Valeu professor. Fiz o MVP. Mas depois pretendo melhorar esse projeto :)
